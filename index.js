@@ -28,14 +28,15 @@ function submitPerson() {
 
 // Cedvelde adi gosteririk :
 function displayNames() {
-    let list = '<table>'
+    let list = '<table>';
+    let id = 0;
+
     for (let i = 0; i < arrayPeople.length; i++) {
-        list += '<tr><th scope="row">' + arrayPeople[i].id + '</th>' + '<td>' + arrayPeople[i].name + '</td>' + '<td>' + arrayPeople[i].surname + '</td>' + '<td>' + arrayPeople[i].age + '</td>' + '<td>' + arrayPeople[i].email + '</td></tr>'
+        list += `<tr><th scope="row"> ${arrayPeople[i].id} </th> <td> ${arrayPeople[i].name} </td><td> ${arrayPeople[i].surname} </td><td> ${arrayPeople[i].age} </td> <td> ${arrayPeople[i].email} </td></tr>`;
     }
     list += '</table>';
     wrapper.innerHTML = list;
-    deletePeople()
-    
+
 }
 
 // Yasi tapiriq :
@@ -53,10 +54,24 @@ function calculateAge(birthday) {
 
 // ID silirik :
 
-function deletePeople() {
-    let idNumber = document.querySelectorAll('#delInput')[0].value;
-    for (let i = 0; i < arrayPeople.length; i++) {
-    }
 
-    console.log(idNumber)
+
+function deletePeople() {
+    
+    let inputText = document.querySelector("#delInput").value;
+
+   for (let index = 0; index <  arrayPeople.length; index++) {
+       if(arrayPeople[index].id==inputText){
+
+        arrayPeople.splice(index,1);
+            displayNames();
+       }
+   }
+}
+
+
+// Siralama
+
+function order() {
+    
 }
