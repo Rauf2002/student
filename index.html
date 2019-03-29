@@ -17,8 +17,7 @@
                 <form name="register">
                     <div class="form-group">
                         <label for="name">Name :</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                            placeholder="Name" name="name">
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="surname">Surname :</label>
@@ -29,29 +28,40 @@
                         <input type="date" class="form-control" id="birthday" name="birthday">
                     </div>
                     <div class="form-group">
-                            <label for="email">Email :</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" name="email">
-                        </div>
+                        <label for="email">Email :</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+                    </div>
                     <button type="button" class="btn btn-primary" onclick="submitPerson()">Submit</button>
                 </form>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-5 d-flex">
+            <div class="col-2">
+                <div class="form-group">
+                    <label for="delInput">Delete user from list</label>
+                    <input type="text" class="form-control" id="delInput" name="Delete" placeholder="Enter ID">
+                </div>
+            </div>
+            <div class="col-10">
+                <button type="button" class="btn btn-danger remove" style="margin-top:2rem"  onclick="deletePeople()">Delete</button>
+            </div>
+        </div>
+        <div class="row mt-3">
             <div class="col-12">
-                    <table class="table table-borderless">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Surname</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Email</th>
-                              </tr>
-                            </thead>
-                            <tbody id="body">
-                             
-                            </tbody>
-                          </table>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body">
+
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

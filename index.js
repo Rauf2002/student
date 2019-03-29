@@ -22,8 +22,8 @@ function submitPerson() {
     let Person = new Structure(name, surname, age, email, id);
     arrayPeople.push(Person);
     displayNames()
+    deletePeople()
     console.log(arrayPeople)
-
 }
 
 // Cedvelde adi gosteririk :
@@ -34,6 +34,8 @@ function displayNames() {
     }
     list += '</table>';
     wrapper.innerHTML = list;
+    deletePeople()
+    
 }
 
 // Yasi tapiriq :
@@ -47,4 +49,14 @@ function calculateAge(birthday) {
         age--;
     }
     return age;
+}
+
+// ID silirik :
+
+function deletePeople() {
+    let idNumber = document.querySelectorAll('#delInput')[0].value;
+    for (let i = 0; i < arrayPeople.length; i++) {
+    }
+
+    console.log(idNumber)
 }
