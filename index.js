@@ -1,5 +1,25 @@
 'use strict'
 
+
+let arrayPeople = [];
+let names = [];
+
+
+function validateForm() {
+    let name = document.forms['register']['name'].value;
+    let surname = document.forms['register']['surname'].value;
+    let birthday = document.forms['register']['birthday'].value;
+    let email = document.forms['register']['email'].value;
+    if (name == "" || surname == "" || birthday == "" || email == "") {
+        alert('All of the inputs must be filled.')
+        return false
+    }
+    else {
+        return submitPerson()
+    }
+    
+}
+
 function Structure(ad, soyad, yas, email, id) {
     this.name = ad;
     this.surname = soyad;
@@ -8,9 +28,6 @@ function Structure(ad, soyad, yas, email, id) {
     this.id = id;
 
 }
-let arrayPeople = [];
-let wrapper = document.querySelectorAll('#body')[0]
-
 
 function submitPerson() {
     let name = document.forms['register']['name'].value;
@@ -21,22 +38,24 @@ function submitPerson() {
     let age = calculateAge(birthday);
     let Person = new Structure(name, surname, age, email, id);
     arrayPeople.push(Person);
-    displayNames()
-    deletePeople()
-    console.log(arrayPeople)
+    namesArray();
+    displayNames();
+    emailIsValid();
+    console.log(arrayPeople);
+    console.log(names)
+    console.log(typeof name)
 }
-
 // Cedvelde adi gosteririk :
+
+let wrapper = document.querySelectorAll('#body')[0]
+
 function displayNames() {
     let list = '<table>';
-    let id = 0;
-
     for (let i = 0; i < arrayPeople.length; i++) {
         list += `<tr><th scope="row"> ${arrayPeople[i].id} </th> <td> ${arrayPeople[i].name} </td><td> ${arrayPeople[i].surname} </td><td> ${arrayPeople[i].age} </td> <td> ${arrayPeople[i].email} </td></tr>`;
     }
     list += '</table>';
     wrapper.innerHTML = list;
-
 }
 
 // Yasi tapiriq :
@@ -54,24 +73,29 @@ function calculateAge(birthday) {
 
 // ID silirik :
 
-
-
 function deletePeople() {
-    
     let inputText = document.querySelector("#delInput").value;
-
-   for (let index = 0; index <  arrayPeople.length; index++) {
-       if(arrayPeople[index].id==inputText){
-
-        arrayPeople.splice(index,1);
+    for (let index = 0; index < arrayPeople.length; index++) {
+        if (arrayPeople[index].id == inputText) {
+            arrayPeople.splice(index, 1);
             displayNames();
-       }
-   }
+        }
+    }
 }
 
 
 // Siralama
 
-function order() {
-    
+function namesArray() {
+    for (let index = 0; index < arrayPeople.length; index++) {
+        let lower = arrayPeople[index].name.toLowerCase();
+        names.push(lower);
+        sortTable()
+        document.getElementsByTagName('td').innerHTML = names
+    }
+    displayNames()
+}
+
+function sortTable() {
+    names.sort()
 }

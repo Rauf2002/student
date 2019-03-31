@@ -21,7 +21,7 @@
                 <form name="register">
                     <div class="form-group">
                         <label for="name">Name :</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" name="name">
+                        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" name="name" autofocus>
                     </div>
                     <div class="form-group">
                         <label for="surname">Surname :</label>
@@ -35,7 +35,7 @@
                         <label for="email">Email :</label>
                         <input type="text" class="form-control" id="email" placeholder="Email" name="email">
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="submitPerson()">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
                 </form>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name <button class="order" onclick="order()">&#x2193</button></th>
+                            <th scope="col">Name <button class="order" onclick="namesArray()">&#x2193</button></th>
                             <th scope="col">Surname</th>
                             <th scope="col">Age</th>
                             <th scope="col">Email</th>
